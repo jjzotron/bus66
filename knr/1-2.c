@@ -8,6 +8,7 @@ int main(void){
     printf("(\\q): \q\n");
     // produces error with -Werror
     // warns and prints the character without
+    // but this is undefined behavior
 
     // can't find escape characters in "man 3 printf" so I tried some shell ones
     // escape codes: a, b, c, f, n, r, t, v, \, and a number
@@ -27,11 +28,13 @@ int main(void){
     printf("\n");
 
     // using backspace
-    for(int i=0; i<4; i++){ 
+    for(int i=0; i<4; i++){
 	printf("abc");
 	sleep(1);
 	printf("\b"); 
 	fflush(stdout);
     }
     printf("\n");
+
+    return(0);
 }

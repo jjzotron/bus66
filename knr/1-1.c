@@ -5,7 +5,6 @@ static void test() {
     //int x;
     int x=INT_MAX;
     int y = x + 1; // warn: left operand is garbage
-    y--; 
 }
 
 int main(void){
