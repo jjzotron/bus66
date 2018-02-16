@@ -7,22 +7,13 @@ int main(void){
     last_char = (int)'a'; // set to any character except space
     
     while((current_char = getchar()) != EOF){
-	if(current_char != (int)' '){
+	if(current_char != (int)' ' || last_char != (int)' '){
 	    putchar_ret = putchar(current_char);
 	    if (putchar_ret == EOF){
 		perror("1-9 error:");
 		return(EXIT_FAILURE);
 	    }
-	} else {
-	    if (last_char != (int)' '){
-		putchar_ret = putchar(' ');
-		if (putchar_ret == EOF){
-		    perror("1-9 error:");
-		    return(EXIT_FAILURE);
-		}
-	    }
-	}
-
+	} 
 	last_char = current_char;
     }
     return(0);
