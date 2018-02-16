@@ -1,4 +1,5 @@
 #include <stdio.h>
+#pragma clang diagnostic ignored "-Wparentheses"
 
 int main(void){
     printf("press ctrl-D (EOF) to terminate\n");

@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <unistd.h>
+#pragma clang diagnostic ignored "-Wunknown-escape-sequence"
 
 int main(void){
     printf("escape characters in printf():\n");
     
-    // testing an invalid escape character
+    // testing an invalid escape character:
     printf("(\\q): \q\n");
     // produces error with -Werror
     // warns and prints the character without

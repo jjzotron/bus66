@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#pragma clang diagnostic ignored "-Wparentheses"
 
 int main(void) {
     printf("value of EOF: %d\n", EOF);
