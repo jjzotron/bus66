@@ -1,0 +1,82 @@
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Ch. 2: Animated Wallpaper</title>
+<style>* {text-align: center;} canvas { background: #fff; border: 1px solid black;}</style>
+</head>
+
+<body>
+
+<h1>Wallpaper Algorithm</h1>
+
+<canvas width=300 height=300></canvas>
+
+<div>
+	<button id=playbutton>Play</button>
+	<button id=stopbutton>Stop</button>
+</div>
+
+</body>
+
+<script>
+var button = document.querySelector("button");
+var canvas = document.querySelector("canvas");
+var context = canvas.getContext("2d");
+var runs = 3;
+var draw_interval;
+var start_x = -7;
+var start_y = -7;
+var zoom = 5;
+
+
+document.getElementById("stopbutton").addEventListener("click", function(){
+	if (draw_interval) {clearInterval(draw_interval);}
+});
+
+document.getElementById("playbutton").addEventListener("click", function(){
+	draw_interval = setInterval(drawCanvas, 20);
+});
+
+function drawCanvas(){
+	context.fillStyle = "white";
+	context.fillRect(0, 0, 300, 300);
+	console.log(runs);
+	//runs = runs + 1;
+	context.fillStyle = "black";
+	start_x += .0001;
+	start_y += .0001;
+	zoom += .0001;
+	//var start_side = 12345 + runs;
+	var start_side = 1;
+
+	for(var i = 0; i < 300; i=i+1){
+		for(var j = 0; j < 300; j=j+1){
+			//console.log(i);
+			//console.log(j);
+			var x = start_x + ((i*start_side)/zoom);
+			var y = start_y + ((j*start_side)/zoom);
+			c = Math.floor((x*x) + (y*y));
+
+
+
+			if (c%2 == 0) {
+				context.fillStyle = "black";
+				context.fillRect(i, j, 1, 1);
+			} 
+			if(c%11 == 0){
+				context.fillStyle = "green";
+				context.fillRect(i, j, 0, 1);
+			}
+			if(c%9 == 0){
+				context.fillStyle = "blue";
+				context.fillRect(i, j, 0, 1);
+			}
+			<!-- they are ordered in increasing order so the rarer cases overrule the common -->
+		}
+	}
+
+}
+
+</script>
+
+</html>
