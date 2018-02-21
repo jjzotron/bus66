@@ -14,12 +14,11 @@ int main(void){
 	if(char_counts[i] < 1) continue;
 	
 	printf("%c: ", i);
-	for(int j=0; j<60 && j<char_counts[i]; j++){
+	for(int j=0; j<60 && j<char_counts[i]; j++){ // chose 60 just to fit terminal width
 	    putchar('#');
 	}
 	printf("\n");
     }
-    
 
     return 0;
 }
