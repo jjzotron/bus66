@@ -10,6 +10,7 @@ int main(void){
 	lookahead_char = getchar();
 	
 	if(curr_char == '\"'){
+	    putchar(curr_char);
 	    if (inside_string)
 		inside_string = false;
 	    else
